@@ -1,21 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {Button, StyleSheet, Text, View} from 'react-native';
+import Todo from "./components/todo/Todo";
+import {ThemeProvider} from "react-native-elements";
+const theme = {
+    Button: {
+        backgroundColor: 'red',
+        titleStyle: {
+            color: 'red',
+            backgroundColor: 'red',
+        },
 
+    },
+    Input: {
+        containerStyle: {
+            backgroundColor: 'red'
+        }
+    }
+};
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>XyZ</Text>
-      <StatusBar style="auto" />
-    </View>
+      <ThemeProvider theme={theme}>
+          <View>
+
+              <Todo/>
+
+              <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#f9faff" translucent = {true} />
+          </View>
+
+      </ThemeProvider>
+
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
 });
